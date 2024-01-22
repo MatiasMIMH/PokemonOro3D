@@ -9,3 +9,5 @@ Strategywiki:
 https://strategywiki.org/wiki/Pok%C3%A9mon_Gold_and_Silver/New_Bark_Town
 - - - - DE BLENDER A UNITY - - - -
 https://www.youtube.com/watch?v=uWexElqDcaA
+- - - - ANIMAR VOXEL EN BLENDER - - - -
+https://youtu.be/WIS4GgWH_UE

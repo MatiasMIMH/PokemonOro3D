@@ -31,12 +31,14 @@ public class PlayerController : MonoBehaviour
             movementControl.action.Disable();
         }
     private void Start()
-    {
+    {   
         controller = gameObject.GetComponent<CharacterController>();
         cameraMainTransform = Camera.main.transform;
 
-        choquePared = (AudioClip)Resources.Load("choquePared");
-        audioSource.clip = choquePared;
+        
+
+        //choquePared = (AudioClip)Resources.Load("choquePared");
+        //audioSource.clip = choquePared;
 
     }
 
@@ -68,13 +70,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnCollisionStay(Collision col) {
+    private void OnCollisionEnter(Collision col) {
 
-        if (col.gameObject.tag == "Edificio") {
-            //audioSource.Play();
-            Debug.Log("colision..........");
-        }
-        
+        audioSource.PlayOneShot(choquePared);
+        Debug.Log("colision..........");
 
     }
 

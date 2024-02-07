@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public AudioSource sonidoChoque;
+
     [SerializeField]
     private InputActionReference movementControl;
     [SerializeField]
@@ -15,8 +17,6 @@ public class PlayerController : MonoBehaviour
     private float gravityValue = -9.81f;
     [SerializeField]
     private float rotationSpeed = 4f;
-    private AudioClip choquePared;
-    private AudioSource audioSource;
 
     private CharacterController controller;
     private Vector3 playerVelocity;
@@ -27,22 +27,16 @@ public class PlayerController : MonoBehaviour
             movementControl.action.Enable();
         }
 
-        private void OnDisable() {
-            movementControl.action.Disable();
-        }
+    private void OnDisable() {
+        movementControl.action.Disable();
+    }
+
     private void Start()
     {   
         controller = gameObject.GetComponent<CharacterController>();
         cameraMainTransform = Camera.main.transform;
 
-        
-
-        //choquePared = (AudioClip)Resources.Load("choquePared");
-        //audioSource.clip = choquePared;
-
     }
-
-    
 
     void Update()
     {
@@ -67,14 +61,11 @@ public class PlayerController : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
-
     }
 
-    private void OnCollisionEnter(Collision col) {
-
-        audioSource.PlayOneShot(choquePared);
-        Debug.Log("colision..........");
-
+    public void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag != "Suelo") {
+            sonidoChoque.Play();
+        }
     }
-
 }

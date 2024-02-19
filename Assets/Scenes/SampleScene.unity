@@ -1314,7 +1314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!199 &37172206
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -8266,7 +8266,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 145713480}
-  m_LocalRotation: {x: 0.000000008450084, y: 0.87110215, z: -0.4911019, w: 0.00000001498851}
+  m_LocalRotation: {x: -0.0000000084500895, y: 0.87110215, z: -0.4911019, w: -0.000000014988522}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12036,7 +12036,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.000000016900172, y: 0.87110215, z: -0.4911019, w: 0.00000002997703}
+  m_LocalRotation: {x: -0.000000016900174, y: 0.87110215, z: -0.4911019, w: -0.000000029977034}
   m_LocalPosition: {x: -17.094, y: 1.8379999, z: -3.554}
   m_LocalScale: {x: 4.0842986, y: 26.48136, z: 4.0842986}
   m_ConstrainProportionsScale: 0

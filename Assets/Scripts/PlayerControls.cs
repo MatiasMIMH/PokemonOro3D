@@ -2,6 +2,8 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -17,7 +19,6 @@ public class PlayerController : MonoBehaviour
     private float gravityValue = -9.81f;
     [SerializeField]
     private float rotationSpeed = 4f;
-
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
@@ -62,7 +63,6 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
     }
-
     public void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag != "Suelo") {
             sonidoChoque.Play();

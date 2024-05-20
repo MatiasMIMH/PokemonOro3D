@@ -160,8 +160,8 @@ public class CombatManager : MonoBehaviour
 
     private void ExecuteEnemyAttack()
     {
-        int randomAttackIndex = Random.Range(0, enemyPokemon.ataques.Count);
-        int damage = CalculateDamage(enemyPokemon, playerPokemon, randomAttackIndex);
+        int indiceRandomAtaque = Random.Range(0, enemyPokemon.ataques.Count);
+        int damage = CalculateDamage(enemyPokemon, playerPokemon, indiceRandomAtaque);
         playerPokemon.vidaActual -= damage;
 
         if (playerPokemon.vidaActual <= 0)
@@ -175,7 +175,7 @@ public class CombatManager : MonoBehaviour
         }
         else
         {
-            textoDialogos.text = $"¡El {enemyPokemon.nombre} enemigo ha usado {enemyPokemon.ataques[randomAttackIndex]}!";
+            textoDialogos.text = $"¡El {enemyPokemon.nombre} enemigo ha usado {enemyPokemon.ataques[indiceRandomAtaque]}!";
         }
     }
 
@@ -185,9 +185,9 @@ public class CombatManager : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
-    private int CalculateDamage(Pkmn_Data attacker, Pkmn_Data defender, int attackIndex)
+    private int CalculateDamage(Pkmn_Data attacker, Pkmn_Data defender, int indiceAtaque)
     {
-        Dictionary<string, int> attackDamage = new Dictionary<string, int>
+        Dictionary<string, int> damageAtaque = new Dictionary<string, int>
         {
             {"Impactrueno", 15},
             {"Ataque Rápido", 10},
@@ -205,9 +205,9 @@ public class CombatManager : MonoBehaviour
             {"Rueda Fuego", 25}
         };
 
-        string attackName = attacker.ataques[attackIndex];
-        int baseDamage = attackDamage[attackName];
-        int totalDamage = baseDamage + attacker.danioAtaque - defender.defensa;
-        return Mathf.Max(totalDamage, 0);
+        string nombreAtaque = attacker.ataques[indiceAtaque];
+        int damageBase = damageAtaque[nombreAtaque];
+        int damageTotal = damageBase + attacker.danioAtaque - defender.defensa;
+        return Mathf.Max(damageTotal, 0);
     }
 }

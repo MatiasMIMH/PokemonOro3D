@@ -15,27 +15,27 @@ public class CombatInitializer : MonoBehaviour
     }
 
     IEnumerator InicializarCombate()
-{
-    while (!pokemonSeleccionado)
     {
-        yield return null;
+        while (!pokemonSeleccionado)
+        {
+            yield return null;
+        }
+
+        Pkmn_Data playerPokemon = PokemonSelector.GetSelectedPokemon();
+        Pkmn_Data enemyPokemon = SeleccionarPokemonAleatorio();
+
+        combatManager.SetPlayerPokemon(playerPokemon);
+        combatManager.SetEnemyPokemon(enemyPokemon);
+
+        uiUpdater.UpdatePlayerUI(playerPokemon);
+        uiUpdater.UpdateEnemyUI(enemyPokemon);
+
+        while (!combatManager.combateAcabado)
+        {
+            yield return null;
+        }
+        PokemonSelector.ResetSelectedPokemon();
     }
-
-    Pkmn_Data playerPokemon = PokemonSelector.GetSelectedPokemon();
-    Pkmn_Data enemyPokemon = SeleccionarPokemonAleatorio();
-
-    combatManager.SetPlayerPokemon(playerPokemon);
-    combatManager.SetEnemyPokemon(enemyPokemon);
-
-    uiUpdater.UpdatePlayerUI(playerPokemon);
-    uiUpdater.UpdateEnemyUI(enemyPokemon);
-
-    while (!combatManager.combateAcabado)
-    {
-        yield return null;
-    }
-    PokemonSelector.ResetSelectedPokemon();
-}
 
     Pkmn_Data SeleccionarPokemonAleatorio()
     {

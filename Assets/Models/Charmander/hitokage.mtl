@@ -1,0 +1,18 @@
+newmtl hitokage1:hitokage_m8_hitokage_m4_hitokage_4_mat7_1
+ illum 2
+ Ka 0.5019608 0.5019608 0.5019608
+ Kd 0.8 0.8 0.8
+ Ks 0.227451 0.5137255 0.07058824
+ Ns 50
+ d 1
+ Tr 0
+ map_Kd Texture_0_RGB565.png
+newmtl hitokage1:hitokage_m8_hitokage_m4_hitokage_4_mat1_1
+ illum 2
+ Ka 0.5019608 0.5019608 0.5019608
+ Kd 0.8 0.8 0.8
+ Ks 0.227451 0.5137255 0.07058824
+ Ns 50
+ d 1
+ Tr 0
+ map_Kd Texture_1_CMP.png

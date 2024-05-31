@@ -39,7 +39,7 @@ public class CombatInitializer : MonoBehaviour
 
     Pkmn_Data SeleccionarPokemonAleatorio()
     {
-        Pkmn_Data[] pokemonArray = { new Pikachu(), new Charmander(), new Chikorita(), new Cyndaquil(), new Totodile() };
+        Pkmn_Data[] pokemonArray = { new Pikachu()};
         System.Random rand = new System.Random();
         int indiceAleatorio = rand.Next(0, pokemonArray.Length);
         return pokemonArray[indiceAleatorio];

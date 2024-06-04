@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class CombatManager : MonoBehaviour
 {
+    public GameObject modeloEnemigo;
+    public GameObject modeloPlayer;
+
     [SerializeField] private CombatUIUpdater uiUpdater;
     [SerializeField] private Button botonAtaque1;
     [SerializeField] private Button botonAtaque2;
@@ -147,6 +150,7 @@ public class CombatManager : MonoBehaviour
             enemyPokemon.vidaActual = 0;
             vidaController.cambiarVidaEnemy(enemyPokemon.vidaActual);
             sonidoBatallaLoop.Stop();
+            modeloEnemigo.SetActive(false);
             sonidoVictoria.Play();
             textoDialogos.text = $"¡El {enemyPokemon.nombre} enemigo ha sido derrotado!";
             combateAcabado = true;
@@ -169,6 +173,7 @@ public class CombatManager : MonoBehaviour
             playerPokemon.vidaActual = 0;
             vidaController.cambiarVidaPlayer(playerPokemon.vidaActual);
             sonidoBatallaLoop.Stop();
+            modeloPlayer.SetActive(false);
             textoDialogos.text = $"Tu {playerPokemon.nombre} ha sido derrotado . . .";
             combateAcabado = true;
             StartCoroutine(FinalizarCombate());

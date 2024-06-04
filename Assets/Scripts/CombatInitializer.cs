@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class CombatInitializer : MonoBehaviour
 {
+    public GameObject modeloEnemigo;
+    public GameObject modeloPlayer;
+    public GameObject pkmnPikachu;
+    public GameObject pkmnCharmander;
+    public GameObject pkmnChikorita;
+    public GameObject pkmnCyndaquil;
+    public GameObject pkmnTotodile;
+
     [SerializeField] private CombatUIUpdater uiUpdater;
     [SerializeField] private CombatManager combatManager;
 
@@ -11,6 +19,13 @@ public class CombatInitializer : MonoBehaviour
 
     public void IniciarCombate()
     {
+        pkmnPikachu.SetActive(false);
+        pkmnCharmander.SetActive(false);
+        pkmnChikorita.SetActive(false);
+        pkmnCyndaquil.SetActive(false);
+        pkmnTotodile.SetActive(false);
+        modeloEnemigo.SetActive(true);
+        modeloPlayer.SetActive(true);
         StartCoroutine(InicializarCombate());
     }
 
@@ -39,9 +54,27 @@ public class CombatInitializer : MonoBehaviour
 
     Pkmn_Data SeleccionarPokemonAleatorio()
     {
-        Pkmn_Data[] pokemonArray = { new Pikachu()};
+        Pkmn_Data[] pokemonArray = { new Pikachu(), new Charmander(), new Cyndaquil(), new Totodile(), new Chikorita()};
         System.Random rand = new System.Random();
         int indiceAleatorio = rand.Next(0, pokemonArray.Length);
+        switch (indiceAleatorio)
+        {
+            case 0:
+                pkmnPikachu.SetActive(true);
+                break;
+            case 1:
+                pkmnCharmander.SetActive(true);
+                break;
+            case 2:
+                pkmnCyndaquil.SetActive(true);
+                break;
+            case 3:
+                pkmnTotodile.SetActive(true);
+                break;
+            case 4:
+                pkmnChikorita.SetActive(true);
+                break;
+        }
         return pokemonArray[indiceAleatorio];
     }
 
@@ -49,4 +82,5 @@ public class CombatInitializer : MonoBehaviour
     {
         pokemonSeleccionado = true;
     }
+
 }
